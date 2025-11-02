@@ -31,3 +31,8 @@ __pycache__/
 
 # Generations
 generations/
+
+# uv
+uv.lock
+pyproject.toml
+.python-version
