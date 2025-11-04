@@ -1,2 +1,1 @@
-# Overview
-In this homework the main objective is to get familar with Direct Preference Optimization (DPO) and the `trl` library.
+[View the project specification (PDF)](https://github.com/ibarra000/direct-preference-optimization/edit/main/results/Direct_Preference_Optimization_Report.pdf)
