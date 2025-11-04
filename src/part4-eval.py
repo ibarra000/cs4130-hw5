@@ -120,27 +120,19 @@ sentiment_classifier = pipeline(
 print("Classifier loaded.")
 
 
-print("Loading 'imdb' test split and filtering for positive prompts...")
+print("Loading 'imdb' test split...")
 testing_dataset = load_dataset('stanfordnlp/imdb', split='test')
-
-
-positive_dataset = testing_dataset.filter(lambda example: example['label'] == 1)
 
 prompts = []
 
-num_available = min(NUM_OF_TESTS, len(positive_dataset)) 
-
-if num_available < NUM_OF_TESTS:
-    print(f"Warning: Found only {num_available} positive prompts, requested {NUM_OF_TESTS}.")
-
-for i in range(num_available):
-    text = positive_dataset[i]['text'] 
+for i in range(NUM_OF_TESTS):
+    text = testing_dataset[i]['text'] 
     words = text.split()
     prefix_length = random.randint(2, 8)
     prompt_text = " ".join(words[:prefix_length])
     prompts.append(prompt_text)
 
-print(f"Loaded {len(prompts)} positive test prompts.")
+print(f"Loaded {len(prompts)} test prompts.")
 
 
 
